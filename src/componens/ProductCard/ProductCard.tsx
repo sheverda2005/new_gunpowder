@@ -19,7 +19,7 @@ const ProductCard: FC<IProductCard> = ({productDescription, productName, price, 
                     <img src="/image/comparison_product_card.svg" alt="comparison"/>
                 </div>
                 <div className="product_photo">
-                    <img src={`https://new-gunpowder-y33d24fd9-sheverdas-projects.vercel.app//api/getImage/${img}`} alt="product_img"/>
+                    <img src={`new-gunpowder-server.vercel.app/api/getImage/${img}`} alt="product_img"/>
                 </div>
                 <p className="product_title">
                     {productName}
