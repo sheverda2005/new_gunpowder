@@ -11,6 +11,8 @@ const ModalBasketMenuItem: FC<IMenuItem> = ({item, deleteItem}) => {
     const {products} = useTypedSelector(state => state.allProducts)
     let ourProducts: any = {}
     products.forEach(product => {
+        console.log("product:", product._id)
+        console.log("item", item.value.id)
         if (product._id == item.value.id) {
             ourProducts = {
                 product: product,
@@ -18,11 +20,10 @@ const ModalBasketMenuItem: FC<IMenuItem> = ({item, deleteItem}) => {
             }
         }
     })
-    console.log(ourProducts)
     return (
         <div className={"modal_basket_menu_item"} >
             <div className="modal_basket_menu_item_content">
-                <img src={`https://new-gunpowder-y33d24fd9-sheverdas-projects.vercel.app/api/getImage/${ourProducts.product.img}`} alt=""/>
+                <img src={`https://new-gunpowder-server.vercel.app/api/getImage/${ourProducts.product.img}`} alt=""/>
                 <div className="modal_basket_menu_item_content_info">
                     <p>{ourProducts.product.productName}</p>
                     <div className="price_count">
