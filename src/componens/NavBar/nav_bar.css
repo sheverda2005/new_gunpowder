@@ -266,8 +266,8 @@
   }
 }
 @media (max-width: 640px) {
-  .main_menu .logo_main_menu_item {
-    width: 35%;
+  .main_menu .logo_main_menu_item a {
+    display: none;
   }
   menu {
     display: none;
