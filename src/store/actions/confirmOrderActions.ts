@@ -78,7 +78,7 @@ export function confirmOrderSendData (name: string, surName: string, tel: string
               city,
               email
           }
-          const request = await axios.post("https://new-gunpowder.vercel.app/api/getOrderData", {
+          const request = await axios.post("https://new-gunpowder-y33d24fd9-sheverdas-projects.vercel.app/api/getOrderData", {
               user,
               products
           })

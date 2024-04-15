@@ -22,7 +22,7 @@ const ModalBasketMenuItem: FC<IMenuItem> = ({item, deleteItem}) => {
     return (
         <div className={"modal_basket_menu_item"} >
             <div className="modal_basket_menu_item_content">
-                <img src={`http://localhost:5000/api/getImage/${ourProducts.product.img}`} alt=""/>
+                <img src={`https://new-gunpowder-y33d24fd9-sheverdas-projects.vercel.app/api/getImage/${ourProducts.product.img}`} alt=""/>
                 <div className="modal_basket_menu_item_content_info">
                     <p>{ourProducts.product.productName}</p>
                     <div className="price_count">

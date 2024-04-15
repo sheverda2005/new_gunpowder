@@ -40,7 +40,7 @@ const SingleProduct = () => {
                     <div className="single_product_content">
                         <div className="single_product_title adaptive">Військово-тактичний захисний жилет Coyot</div>
                         <div className="single_product_main_img">
-                            <img src={`http://localhost:5000/api/getImage/${product[0].img}`} alt="single product"/>
+                            <img src={`https://new-gunpowder-y33d24fd9-sheverdas-projects.vercel.app/api/getImage/${product[0].img}`} alt="single product"/>
                         </div>
                         <div className="single_product_text">
                             <div className="single_product_title">
