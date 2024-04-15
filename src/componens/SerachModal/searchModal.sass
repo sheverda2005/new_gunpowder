@@ -1,0 +1,46 @@
+.search_modal
+  position: absolute
+  background-color: rgb(0, 0, 0, 0.5)
+  width: 100%
+  height: 100%
+  z-index: 100
+  top: -1000px
+  transition: all 0.3s ease
+
+.search_modal.active
+  top: 0
+  transition: all 0.3s ease
+
+
+.search_model_content
+  margin-top: 50px
+  input
+    width: 95%
+    padding: 12px
+    background-color: #fbf9f3
+    font-size: 15px
+    outline: none
+
+.search_model_exit
+  width: 30px
+  height: 30px
+  margin-left: 20px
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  cursor: pointer
+  .search_model_item
+    width: 100%
+    height: 3px
+    background-color: white
+
+.search_model_item.one
+  transform: rotate(45deg) translate(3px, 1px)
+
+.search_model_item.two
+  transform: rotate(-45deg)
+
+.search_model_content
+  display: flex
+  align-items: center

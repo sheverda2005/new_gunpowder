@@ -1,0 +1,136 @@
+.confirm_order_content h2 {
+  font-size: 35px;
+  font-weight: 400;
+  margin: 30px 0;
+  text-align: center;
+}
+.confirm_order_content form {
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+}
+.confirm_order_content form .form_confirm_input {
+  width: 40%;
+  margin: 10px 20px;
+  padding: 5px;
+  min-width: 400px;
+}
+.confirm_order_content form input {
+  width: 100%;
+  background-color: #fbf9f3;
+  outline: none;
+  padding: 15px 15px;
+  font-size: 17px;
+  color: #575757;
+  border-bottom: 1px solid #fbf9f3;
+  transition: all 0.3s ease;
+}
+.confirm_order_content form input:focus {
+  border-bottom: 1px solid #000000;
+  transition: all 0.3s ease;
+}
+.confirm_order_content form label {
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.75;
+}
+.confirm_order_content form button {
+  margin: 40px 0;
+  width: 30%;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 14px 20px;
+  background-color: #283c28;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #283c28;
+  transition: all 0.3s ease;
+  min-width: 300px;
+}
+.confirm_order_content form button:hover {
+  background-color: white;
+  color: #283c28;
+  transition: all 0.3s ease;
+}
+
+.form_confirm_success_link {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #283c28;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #283c28;
+}
+.form_confirm_success_link:hover {
+  background-color: white;
+  color: #283c28;
+  transition: all 0.3s ease;
+}
+
+.form_confirm_success {
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: white;
+  color: #283c28;
+  border: 1px solid #283c28;
+}
+
+.button_items {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1030px) {
+  .confirm_order_content form .form_confirm_input {
+    margin: 20px;
+  }
+  .confirm_order_content form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 550px) {
+  .confirm_order_content form .form_confirm_input {
+    width: 90%;
+    margin-left: -2%;
+  }
+}
+@media (max-width: 468px) {
+  .confirm_order_content form .form_confirm_input {
+    min-width: 200px;
+    width: 90%;
+    margin-left: -2%;
+  }
+}
+@media (max-width: 426px) {
+  .confirm_order_content form .form_confirm_input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .confirm_order_content form button {
+    min-width: 95%;
+  }
+}
+
+/*# sourceMappingURL=comfirmOrder.css.map */

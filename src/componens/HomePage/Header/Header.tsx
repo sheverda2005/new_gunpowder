@@ -1,0 +1,45 @@
+import React from 'react';
+import {NavLink} from "react-router-dom";
+
+const Header = () => {
+    return (
+        <header>
+            <div className="container header">
+                <div className="header_wrapper">
+                    <div className="header_options">
+                        <ul>
+                            <li>
+                                <p>РЕБ</p>
+                                <div className="border_gradient">
+                                </div>
+                            </li>
+                            <li>
+                                <p>Датчикі цілі</p>
+                                <div className="border_gradient">
+                                </div>
+                            </li>
+                            <li>
+                                <p>Контакти</p>
+                                <div className="border_gradient">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="header_slider">
+                        <div className="header_slider_wrapper">
+                            <div className="header_slider_content">
+                                <h1>електронні системи</h1>
+                                <p>Наш магазин мітись електронні системи розроблені до виконання військових завдань</p>
+                                <NavLink to={"/shop"}>
+                                    <button>До каталогу</button>
+                                </NavLink>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    );
+};
+
+export default Header;
