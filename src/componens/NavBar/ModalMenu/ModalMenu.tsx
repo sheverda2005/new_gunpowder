@@ -1,7 +1,6 @@
 import React, {FC} from 'react';
 import "./modal_menu.css"
 import {useActions} from "../../../hooks/useActions";
-import modalAuthMenu from "../ModalAuthMenu/ModalAuthMenu";
 import ModalAuthMenu from "../ModalAuthMenu/ModalAuthMenu";
 import ModalBasketMenu from "../ModalBasketMenu/ModalBasketMenu";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";

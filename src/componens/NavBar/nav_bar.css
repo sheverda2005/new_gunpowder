@@ -158,12 +158,23 @@
 .search_basket {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
   width: 15%;
 }
 
 .li_drop_down:hover .drop_down_menu_content {
   display: block;
+}
+
+menu {
+  display: flex;
+  width: 60%;
+  justify-content: center;
+}
+menu ul {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .drop_down_menu {

@@ -15,9 +15,9 @@ const ContactPage = () => {
                                     Зателефонувати нам
                                 </div>
                                 <div className="numbers">
-                                    <span>+38 (000) 000 00 00</span>
-                                    <span>+38 (000) 000 00 00</span>
-                                    <span>+38 (000) 000 00 00</span>
+                                    <span>+38 (068) 736 65 57</span>
+                                    {/*<span>+38 (000) 000 00 00</span>*/}
+                                    {/*<span>+38 (000) 000 00 00</span>*/}
                                 </div>
                             </div>
                             <div className="email">
@@ -26,7 +26,7 @@ const ContactPage = () => {
                                     Електрона пошта
                                 </div>
                                 <p>
-                                    support@support.com.ua
+                                    nsewerda04@gmail.com
                                 </p>
                             </div>
                             <div className="address">
@@ -35,7 +35,7 @@ const ContactPage = () => {
                                     Адреса офісу
                                 </div>
                                 <p>
-                                    м. Київ, вул. Київська
+                                    м. Київ, Солом'янський район
                                 </p>
                             </div>
                         </div>

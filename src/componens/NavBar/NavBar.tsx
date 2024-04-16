@@ -28,14 +28,14 @@ const NavBar = () => {
                         </a>
                     </div>
                     <div className="contact_user_data">
-                        <NavLink to={"/comparison"} className="user_data_link comparison_link">
-                            <img src="/image/compare.svg" alt="compare"/>
-                            <span>Порівняння</span>
-                        </NavLink>
-                        <NavLink to={"/chosen"} className="user_data_link chosen_link">
-                            <img src="/image/heart.svg" alt="heart"/>
-                            <span>Обране</span>
-                        </NavLink>
+                        {/*<NavLink to={"/comparison"} className="user_data_link comparison_link">*/}
+                        {/*    <img src="/image/compare.svg" alt="compare"/>*/}
+                        {/*    <span>Порівняння</span>*/}
+                        {/*</NavLink>*/}
+                        {/*<NavLink to={"/chosen"} className="user_data_link chosen_link">*/}
+                        {/*    <img src="/image/heart.svg" alt="heart"/>*/}
+                        {/*    <span>Обране</span>*/}
+                        {/*</NavLink>*/}
                         <div className="user_data_link profil_link" onClick={()=> {
                             modalActiveMenuActionsTrue()
                             modalActiveProfileActionsTrue()
@@ -94,12 +94,12 @@ const NavBar = () => {
                         </ul>
                     </menu>
                     <div className="search_basket">
-                        <div onClick={()=> {
-                            searchMenuModalTrue()
-                        }} className="menu_search">
-                            <img src="/image/search-b.svg" alt="search"/>
-                            <span>Пошук</span>
-                        </div>
+                        {/*<div onClick={()=> {*/}
+                        {/*    searchMenuModalTrue()*/}
+                        {/*}} className="menu_search">*/}
+                        {/*    <img src="/image/search-b.svg" alt="search"/>*/}
+                        {/*    <span>Пошук</span>*/}
+                        {/*</div>*/}
                         <div onClick={()=> {
                             modalActiveMenuActionsTrue()
                             modalActiveBasketActionsTrue()

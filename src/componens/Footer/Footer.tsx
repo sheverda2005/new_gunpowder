@@ -9,7 +9,9 @@ const Footer = () => {
                 <div className="footer_content">
                     <div className="footer_item footer_logo_social_info">
                         <div className="footer_logo">
-                            <img src="/image/logo-main.svg" alt="footer_logo"/>
+                            <h1>Новий порох</h1>
+                            <span>Буде змінено.....</span>
+                            {/*<img src="/image/logo-main.svg" alt="footer_logo"/>*/}
                         </div>
                         <div className="footer_social_links">
                             <div className="footer_social_link_item">
@@ -30,18 +32,15 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="footer_links_content_items">
-                        <div className="footer_item footer_personal_cabinet_info">
-                            <p>
-                                Особистий кабінет
-                            </p>
+                        <div className="footer_item">
+                            <p>Товари</p>
                             <ul>
-                                <NavLink to={"/comparison"}>
-                                    <li>Порівняння</li>
-                                </NavLink>
-                                <NavLink to={"/chosen"}>
-                                    <li>Обране</li>
-                                </NavLink>
-                                <li>Мої замовлення</li>
+                                <li>
+                                    РЕБ
+                                </li>
+                                <li>
+                                    Датчикі цілі
+                                </li>
                             </ul>
                         </div>
                         <div className="footer_item footer_menu">
@@ -49,10 +48,10 @@ const Footer = () => {
                                 Меню
                             </p>
                             <ul>
-                                <NavLink to={"/shop"}>
-                                    <li>Магазин</li>
+                                <NavLink to={"/"}>
+                                    <li>Головна</li>
                                 </NavLink>
-                                <NavLink to={"/about_us"}>
+                                <NavLink to={"/shop"}>
                                     <li>Магазин</li>
                                 </NavLink>
                                 <NavLink to={"/contact"}>
@@ -67,20 +66,20 @@ const Footer = () => {
                             <ul>
                                 <li>
                                     <img src="/image/maps.svg" alt="maps"/>
-                                    <span>м. Київ, вул. Київська 1</span>
+                                    <span>м. Київ, Солом'янський район</span>
                                 </li>
                                 <li>
                                     <img src="/image/call-footer.svg" alt="call"/>
-                                    <span>+38 (099) 000 00 00</span>
+                                    <span>+38 (068) 736 655 7</span>
                                 </li>
                                 <li>
                                     <img src="/image/email_footer.svg" alt="email"/>
-                                    <span>support@mail.com</span>
+                                    <span>nsewerda04@gmail.com</span>
                                 </li>
-                                <li className={"footer_method_of_pay"}>
-                                    <img src="/image/visa.svg" alt="visa"/>
-                                    <img src="/image/mastercard.svg" alt="mastercard"/>
-                                </li>
+                                {/*<li className={"footer_method_of_pay"}>*/}
+                                {/*    <img src="/image/visa.svg" alt="visa"/>*/}
+                                {/*    <img src="/image/mastercard.svg" alt="mastercard"/>*/}
+                                {/*</li>*/}
                             </ul>
                         </div>
                     </div>

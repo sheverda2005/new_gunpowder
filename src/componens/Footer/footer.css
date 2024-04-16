@@ -45,6 +45,7 @@ footer {
 }
 
 .footer_social_links {
+  margin-top: 10px;
   display: flex;
 }
 

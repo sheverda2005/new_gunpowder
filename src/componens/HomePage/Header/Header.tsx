@@ -29,7 +29,7 @@ const Header = () => {
                         <div className="header_slider_wrapper">
                             <div className="header_slider_content">
                                 <h1>електронні системи</h1>
-                                <p>Наш магазин мітись електронні системи розроблені до виконання військових завдань</p>
+                                <p>Наш сайт містить електронні системи для виконання військових завдань</p>
                                 <NavLink to={"/shop"}>
                                     <button>До каталогу</button>
                                 </NavLink>
