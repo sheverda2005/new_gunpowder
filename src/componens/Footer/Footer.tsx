@@ -33,9 +33,11 @@ const Footer = () => {
                         <div className="footer_item">
                             <p>Товари</p>
                             <ul>
-                                <li>
-                                    РЕБ
-                                </li>
+                                <NavLink to={"/single_product/661d4f7103682320bcbb7637"}>
+                                    <li>
+                                        РЕБ
+                                    </li>
+                                </NavLink>
                                 <li>
                                     Датчикі цілі
                                 </li>

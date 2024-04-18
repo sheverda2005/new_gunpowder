@@ -9,7 +9,9 @@ const Header = () => {
                     <div className="header_options">
                         <ul>
                             <li>
-                                <p>РЕБ</p>
+                                <NavLink to={"/single_product/661d4f7103682320bcbb7637"}>
+                                    <p>РЕБ</p>
+                                </NavLink>
                                 <div className="border_gradient">
                                 </div>
                             </li>

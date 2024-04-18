@@ -30,6 +30,7 @@ const ConfirmOrder = () => {
         // @ts-ignore
         confirmOrderProducts(items)
         resetConfirmOrderData()
+        window.scrollTo(0, 0);
     }, [])
     console.log(loading)
     return (
