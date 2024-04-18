@@ -9,6 +9,10 @@
   white-space: nowrap;
 }
 
+.logo_main_menu_item {
+  width: 20%;
+}
+
 .container.contact_panel {
   display: flex;
   justify-content: space-between;
@@ -168,7 +172,7 @@
 
 menu {
   display: flex;
-  width: 60%;
+  width: 65%;
   justify-content: center;
 }
 menu ul {

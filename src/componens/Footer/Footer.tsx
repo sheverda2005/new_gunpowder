@@ -9,9 +9,7 @@ const Footer = () => {
                 <div className="footer_content">
                     <div className="footer_item footer_logo_social_info">
                         <div className="footer_logo">
-                            <h1>Новий порох</h1>
-                            <span>Буде змінено.....</span>
-                            {/*<img src="/image/logo-main.svg" alt="footer_logo"/>*/}
+                            <img src="/image/logo.svg" alt="footer_logo"/>
                         </div>
                         <div className="footer_social_links">
                             <div className="footer_social_link_item">

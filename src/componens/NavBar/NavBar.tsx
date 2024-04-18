@@ -50,9 +50,7 @@ const NavBar = () => {
                 <div className="container main_menu">
                    <div className="logo_main_menu_item">
                        <NavLink to={'/'}>
-                           <h1>Новий порох</h1>
-                           <span>Буде змінено.....</span>
-                           {/*<img className={"main_menu_logo"} src="/image/logo-main.svg" alt=""/>*/}
+                           <img className={"main_menu_logo"} src="/image/logo.svg" alt=""/>
                        </NavLink>
                    </div>
                     <BurgerMenu/>
