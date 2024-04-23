@@ -38,7 +38,7 @@ const SingleProduct = () => {
             <div className={'single_product_page'} >
                 <div className="container">
                     <div className="single_product_content">
-                        <div className="single_product_title adaptive">Військово-тактичний захисний жилет Coyot</div>
+                        <div className="single_product_title adaptive">{product[0].productName}</div>
                         <div className="single_product_main_img">
                             <img src={`https://new-gunpowder-server.vercel.app/api/getImage/${product[0].img}`} alt="single product"/>
                         </div>
