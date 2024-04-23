@@ -47,7 +47,7 @@ const SingleProduct = () => {
                                 {product[0].productName}
                             </div>
                             <div className="single_product_producer">
-                                Виробник: <strong>M-TAC</strong>
+                                Виробник: <strong></strong>
                             </div>
                             <div className="single_product_price">
                                 {product[0].price} ₴
