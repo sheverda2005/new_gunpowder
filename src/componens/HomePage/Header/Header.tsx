@@ -16,7 +16,7 @@ const Header = () => {
                                 </div>
                             </li>
                             <li>
-                                <p>Датчикі цілі</p>
+                                <p>Датчики цілі</p>
                                 <div className="border_gradient">
                                 </div>
                             </li>

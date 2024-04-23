@@ -40,7 +40,7 @@ const Footer = () => {
                                     </li>
                                 </NavLink>
                                 <li>
-                                    Датчикі цілі
+                                    Датчики цілі
                                 </li>
                             </ul>
                         </div>
