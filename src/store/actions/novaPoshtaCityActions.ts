@@ -54,3 +54,19 @@ export function chosenCityNovaPoshta (chosenCity: ICityNovaPoshta) {
         dispatch({type: LIST_OF_DEPARTMENTSTypes.GET_LIST_IF_DEPARTMENTS, payload: req.data.data})
     }
 }
+
+export function addressDepartmentNovaPoshta (input_data: string, ref: string | undefined) {
+    return async (dispatch: Dispatch<ListOfDepartmentsActions>) => {
+        const req = await axios.post("https://api.novaposhta.ua/v2.0/json/", {
+            apiKey: "70c1d39bfeee79ae18eb611e10e7e2a3",
+            modelName: "Address",
+            calledMethod: "getWarehouses",
+            methodProperties: {
+                FindByString: input_data,
+                CityRef : ref,
+                Page : "1",
+                Limit : "50",
+            }
+        })
+        dispatch({type: LIST_OF_DEPARTMENTSTypes.GET_LIST_IF_DEPARTMENTS, payload: req.data.data})
+    }}

@@ -11,6 +11,8 @@ export const novaPoshtaCityReducer = (state = initialState, action: INovaPoshtaC
             return {...state, cities: action.payload}
         case INovaPoshtaCityTypes.CHOSEN_CITY_ADDRESS_NOVA_POSHTA:
             return {...state, chosenCity: action.payload}
+        case INovaPoshtaCityTypes.ADDRESS_CITY_INPUT_NOVA_POSHTA:
+            return {...state, cities: action.payload}
         default:
             return state;
     }

@@ -22,7 +22,8 @@ export interface INova_poshta_city {
 
 export enum INovaPoshtaCityTypes {
     "INPUT_CITIES_ADDRESS_NOVA_POSHTA"= "INPUT_CITIES_ADDRESS_NOVA_POSHTA",
-    "CHOSEN_CITY_ADDRESS_NOVA_POSHTA"="CHOSEN_CITY_ADDRESS_NOVA_POSHTA"
+    "CHOSEN_CITY_ADDRESS_NOVA_POSHTA"="CHOSEN_CITY_ADDRESS_NOVA_POSHTA",
+    "ADDRESS_CITY_INPUT_NOVA_POSHTA"="ADDRESS_CITY_INPUT_NOVA_POSHTA"
 }
 
 export interface inputNovaPoshtaCities {
@@ -36,7 +37,13 @@ export interface chosenCityNovaPoshta {
     payload: ICityNovaPoshta
 }
 
+export interface addressNovePoshtaCity {
+    type: INovaPoshtaCityTypes.ADDRESS_CITY_INPUT_NOVA_POSHTA
+    payload: ICityNovaPoshta[]
+}
+
 export type INovaPoshtaCityActions =
     inputNovaPoshtaCities |
     chosenCityNovaPoshta |
+    addressNovePoshtaCity |
     any

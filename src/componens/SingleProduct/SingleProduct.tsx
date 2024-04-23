@@ -4,7 +4,6 @@ import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {IProduct} from "../../types/getAllProducts";
 import {useActions} from "../../hooks/useActions";
-import {modalActiveMenuActionsTrue} from "../../store/actions/modalMenu";
 
 
 function setLocalStorage(name: string, id: string, count: number) {
