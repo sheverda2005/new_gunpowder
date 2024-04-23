@@ -9,7 +9,7 @@ const Header = () => {
                     <div className="header_options">
                         <ul>
                             <li>
-                                <NavLink to={"/single_product/661d4f7103682320bcbb7637"}>
+                                <NavLink to={"/single_product/661d5868c274b1ab819732bb"}>
                                     <p>РЕБ</p>
                                 </NavLink>
                                 <div className="border_gradient">

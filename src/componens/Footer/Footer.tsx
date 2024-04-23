@@ -33,7 +33,8 @@ const Footer = () => {
                         <div className="footer_item">
                             <p>Товари</p>
                             <ul>
-                                <NavLink to={"/single_product/661d4f7103682320bcbb7637"}>
+
+                                <NavLink to={"/single_product/661d5868c274b1ab819732bb"}>
                                     <li>
                                         РЕБ
                                     </li>

@@ -9,7 +9,6 @@ export interface IConfirmProduct {
     key: string
     value: IConfirmValue
 }
-
 export interface IConfirmOrder {
     name: string
     surName: string

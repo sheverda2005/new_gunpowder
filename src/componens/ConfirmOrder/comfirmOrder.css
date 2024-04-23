@@ -12,6 +12,7 @@
   justify-content: center;
 }
 .confirm_order_content form .form_confirm_input {
+  position: relative;
   width: 40%;
   margin: 10px 20px;
   padding: 5px;
@@ -91,6 +92,52 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+}
+
+.form_confirm_input_choose_city {
+  display: none;
+  position: absolute;
+  width: 104.5%;
+  background-color: white;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
+  max-height: 300px;
+  overflow: scroll;
+  overflow-x: hidden;
+  z-index: 70;
+}
+.form_confirm_input_choose_city ul li {
+  cursor: pointer;
+  padding: 10px 5px;
+}
+.form_confirm_input_choose_city ul li:hover {
+  background-color: #E5DBCF;
+}
+
+.form_confirm_input_choose_city.active {
+  display: block;
+}
+
+.form_confirm_input_list_of_departments {
+  display: none;
+  position: absolute;
+  width: 104.5%;
+  background-color: white;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
+  max-height: 300px;
+  overflow: scroll;
+  overflow-x: hidden;
+  z-index: 70;
+}
+.form_confirm_input_list_of_departments ul li {
+  cursor: pointer;
+  padding: 10px 5px;
+}
+.form_confirm_input_list_of_departments ul li:hover {
+  background-color: #E5DBCF;
+}
+
+.form_confirm_input_list_of_departments.active {
+  display: block;
 }
 
 @media (max-width: 1030px) {

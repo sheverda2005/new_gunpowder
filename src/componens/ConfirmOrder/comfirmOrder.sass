@@ -11,6 +11,7 @@
     margin: 0 auto
     justify-content: center
     .form_confirm_input
+      position: relative
       width: 40%
       margin: 10px 20px
       padding: 5px
@@ -83,6 +84,46 @@
   display: flex
   justify-content: center
 
+
+.form_confirm_input_choose_city
+  display: none
+  position: absolute
+  width: 104.5%
+  background-color: white
+  box-shadow: 0 10px 15px 0 rgb(0, 0, 0, 0.2)
+  max-height: 300px
+  overflow: scroll
+  overflow-x: hidden
+  z-index: 70
+  ul
+    li
+      cursor: pointer
+      padding: 10px 5px
+      &:hover
+        background-color: #E5DBCF
+
+.form_confirm_input_choose_city.active
+  display: block
+
+.form_confirm_input_list_of_departments
+  display: none
+  position: absolute
+  width: 104.5%
+  background-color: white
+  box-shadow: 0 10px 15px 0 rgb(0, 0, 0, 0.2)
+  max-height: 300px
+  overflow: scroll
+  overflow-x: hidden
+  z-index: 70
+  ul
+    li
+      cursor: pointer
+      padding: 10px 5px
+      &:hover
+        background-color: #E5DBCF
+
+.form_confirm_input_list_of_departments.active
+  display: block
 
 @media (max-width: 1030px)
   .confirm_order_content

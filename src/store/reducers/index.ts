@@ -4,6 +4,15 @@ import {SearchMenuModalReducer} from "./SearchMenuModalReducer";
 import {getAllProducts} from "./getAllProductsReducer";
 import {confirmOrderReducer} from "./confirmOrderReducer";
 import {burgerMenuReducer} from "./burgerMenureducer";
+import {novaPoshtaCityReducer} from "./novaPoshtaCityReducer";
+import {ListOfDepartmentsReducer} from "./ listOfDepartmentsReducer";
+
+
+
+const deliverySystem = combineReducers({
+    novaPoshta: novaPoshtaCityReducer,
+    novaPoshtaChosenCityReducer: ListOfDepartmentsReducer
+})
 
 const modalMenu = combineReducers({
     modalMenu: ModalMenuReducer,
@@ -17,7 +26,8 @@ export const rootReducer = combineReducers({
     modalMenu,
     search,
     allProducts: getAllProducts,
-    confirmOrder: confirmOrderReducer
+    confirmOrder: confirmOrderReducer,
+    deliverySystem,
 })
 
 export type RootReducer = ReturnType<typeof rootReducer>

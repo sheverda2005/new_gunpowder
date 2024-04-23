@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import "./comfirmOrder.css"
 import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
@@ -21,10 +21,37 @@ function getAllProductsLocalStorage() {
     return allItems
 }
 
+function inputAddressHandler (setIsFocusDepartments: any) {
+    setTimeout(()=> {
+        setIsFocusDepartments(false)
+    }, 200)
+}
+
+function inputCityHandler (setIsFocus: any) {
+    setTimeout(()=> {
+        setIsFocus(false)
+    }, 200)
+}
 
 const ConfirmOrder = () => {
-    const {confirmOrderName, confirmOrderSurName, confirmOrderAddress, confirmOrderEmail, confirmOrderTel, confirmOrderCity, confirmOrderSendData, resetConfirmOrderData, confirmOrderProducts} = useActions()
+    const {
+        confirmOrderName,
+        confirmOrderSurName,
+        confirmOrderAddress,
+        confirmOrderEmail,
+        confirmOrderTel,
+        confirmOrderCity,
+        confirmOrderSendData,
+        resetConfirmOrderData,
+        confirmOrderProducts,
+        addCitiesNovaPoshta,
+        chosenCityNovaPoshta
+    } = useActions()
     const {name, surName, tel, address, city, email, products, send_success, loading} = useTypedSelector(state => state.confirmOrder)
+    const {cities} = useTypedSelector(state => state.deliverySystem.novaPoshta)
+    const [isFocus, setIsFocus] = useState(false)
+    const {departments} = useTypedSelector(state => state.deliverySystem.novaPoshtaChosenCityReducer)
+    const [isFocusDepartments, setIsFocusDepartments] = useState(false)
     useEffect(()=> {
         let items = getAllProductsLocalStorage()
         // @ts-ignore
@@ -32,7 +59,6 @@ const ConfirmOrder = () => {
         resetConfirmOrderData()
         window.scrollTo(0, 0);
     }, [])
-    console.log(loading)
     return (
         <div className={"confirm_order_page"} >
            <div className="container">
@@ -63,17 +89,50 @@ const ConfirmOrder = () => {
                                confirmOrderEmail(event.target.value)
                            }} value={email} className={"confirm_input_email"} type="email"/>
                        </div>
+
                        <div className={"form_confirm_input"}>
-                           <label htmlFor="confirm_input_city">Місто</label>
-                           <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                           <label htmlFor="confirm_input_city">Місто або село</label>
+                           <input onFocus={() => {
+                               setIsFocus(true)
+                           }} onBlur={()=> {
+                               inputCityHandler(setIsFocus)
+                           }}   onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                                confirmOrderCity(event.target.value)
+                               addCitiesNovaPoshta(event.target.value)
                            }} value={city} className={"confirm_input_city"} type="text"/>
+                               <div className={isFocus ? "form_confirm_input_choose_city active" : "form_confirm_input_choose_city"}>
+                                   <ul>
+                                       {cities.map(city => (
+                                           <li onClick={(event) => {
+                                               setIsFocus(false)
+                                               confirmOrderCity(city.Present)
+                                               chosenCityNovaPoshta(city)
+                                           }}>{city.Present}</li>
+                                       ))}
+                                   </ul>
+                               </div>
                        </div>
                        <div className={"form_confirm_input"}>
                            <label htmlFor="confirm_input_address">Адреса</label>
-                           <input onChange={(event: React.ChangeEvent<HTMLInputElement>)=> {
+                           <input onFocus={()=> {
+                               setIsFocusDepartments(true)
+                           }} onBlur={()=> {
+                               inputAddressHandler(setIsFocusDepartments)
+                           }} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                                confirmOrderAddress(event.target.value)
                            }} value={address} className={"confirm_input_address"} type="text"/>
+                           <div className={isFocusDepartments ? "form_confirm_input_list_of_departments active": "form_confirm_input_list_of_departments"} >
+                               <ul>
+                                   {departments.map(department => (
+                                       <li onClick={(event)=> {
+                                           setIsFocusDepartments(false)
+                                           confirmOrderAddress(department.Description)
+                                       }} >
+                                           {department.Description}
+                                       </li>
+                                   ))}
+                               </ul>
+                           </div>
                        </div>
                        <div className="button_items">
                            {loading ?
