@@ -16,12 +16,16 @@ const Header = () => {
                                 </div>
                             </li>
                             <li>
-                                <p>Датчики цілі</p>
+                                <NavLink to={'/target_sensors'}>
+                                    <p>Датчики цілі</p>
+                                </NavLink>
                                 <div className="border_gradient">
                                 </div>
                             </li>
                             <li>
-                                <p>Контакти</p>
+                                <NavLink to={"/contact"}>
+                                    <p>Контакти</p>
+                                </NavLink>
                                 <div className="border_gradient">
                                 </div>
                             </li>

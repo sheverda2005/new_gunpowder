@@ -39,9 +39,11 @@ const Footer = () => {
                                         РЕБ
                                     </li>
                                 </NavLink>
-                                <li>
-                                    Датчики цілі
-                                </li>
+                                <NavLink to={"/target_sensors"}>
+                                    <li>
+                                        Датчики цілі
+                                    </li>
+                                </NavLink>
                             </ul>
                         </div>
                         <div className="footer_item footer_menu">

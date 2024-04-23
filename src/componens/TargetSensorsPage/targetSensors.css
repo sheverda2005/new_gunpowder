@@ -1,0 +1,12 @@
+.target_sensors_titles {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20px;
+}
+.target_sensors_titles .title {
+  font-weight: 400;
+  font-size: 35px;
+}
+
+/*# sourceMappingURL=targetSensors.css.map */

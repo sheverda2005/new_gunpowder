@@ -9,6 +9,7 @@ import DeliveryPayment from "./componens/DeliveryPaymentPage/DeliveryPayment";
 import ContactPage from "./componens/ContactPage/ContactPage";
 import SingleProduct from "./componens/SingleProduct/SingleProduct";
 import ConfirmOrder from "./componens/ConfirmOrder/ConfirmOrder";
+import TargetSensorsPage from "./componens/TargetSensorsPage/TargetSensorsPage";
 
 const useRouters = () => {
     return (
@@ -22,6 +23,7 @@ const useRouters = () => {
             <Route path={"/contact"} element={<ContactPage/>} />
             <Route path={"/single_product/:id"} element={<SingleProduct/>} />
             <Route path={"/confirm_order"} element={<ConfirmOrder/>} />
+            <Route path={"/target_sensors"} element={<TargetSensorsPage/>} />
         </Routes>
     );
 };
