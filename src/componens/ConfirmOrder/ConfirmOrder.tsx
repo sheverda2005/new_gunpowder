@@ -119,7 +119,7 @@ const ConfirmOrder = () => {
                            </div>
                        </div>
                        <div className={"form_confirm_input"}>
-                           <label htmlFor="confirm_input_address">Адреса</label>
+                           <label htmlFor="confirm_input_address">Відділення або поштомат Нова пошта</label>
                            <input onFocus={() => {
                                setIsFocusDepartments(true)
                            }} onBlur={() => {
