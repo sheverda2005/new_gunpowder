@@ -64,7 +64,6 @@
 
 .form_confirm_success_link {
   margin-top: 20px;
-  width: 100%;
   text-align: center;
   font-weight: 600;
   font-size: 18px;
@@ -82,7 +81,6 @@
 
 .form_confirm_success {
   margin-top: 40px;
-  width: 100%;
   text-align: center;
   font-weight: 600;
   font-size: 18px;
@@ -97,6 +95,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .confirm_input_city_wrapper {
