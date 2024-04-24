@@ -18,7 +18,7 @@ const NavBar = () => {
             <div className="contact_panel">
                 <div className="container contact_panel">
                     <div className="contact_info">
-                        <a href={"tel:38068736657"} className="contact_number">
+                        <a href={"tel:380687366557"} className="contact_number">
                             <img src="/image/call.svg" alt="Call"/>
                             <span>+38 068 73 66 557</span>
                         </a>

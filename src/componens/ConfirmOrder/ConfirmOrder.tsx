@@ -4,7 +4,7 @@ import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {NavLink} from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
-import {addressDepartmentNovaPoshta} from "../../store/actions/novaPoshtaCityActions";
+import PhoneInput from 'react-telephone-input';
 
 function getAllProductsLocalStorage() {
     let allItems = []
@@ -34,6 +34,10 @@ function inputCityHandler (setIsFocus: any) {
     }, 200)
 }
 
+function InputMask(props: { placeholder: string, mask: string }) {
+    return null;
+}
+
 const ConfirmOrder = () => {
     const {
         confirmOrderName,
@@ -55,6 +59,7 @@ const ConfirmOrder = () => {
     const [isFocusDepartments, setIsFocusDepartments] = useState(false)
     const {addressDepartmentNovaPoshta} = useActions()
     const {chosenCity} = useTypedSelector(state => state.deliverySystem.novaPoshta)
+
     useEffect(()=> {
         let items = getAllProductsLocalStorage()
         // @ts-ignore
@@ -82,9 +87,14 @@ const ConfirmOrder = () => {
                        </div>
                        <div className={"form_confirm_input"}>
                            <label htmlFor="confirm_input_number">Телефон</label>
-                           <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                               confirmOrderTel(event.target.value)
-                           }} value={tel} className={"confirm_input_number"} type="tel"/>
+                           <PhoneInput
+                               value={tel}
+                               defaultCountry="ua"
+                               className={"confirm_input_number"}
+                               onChange={(event: any) => {
+                                   confirmOrderTel(event)
+                               }}
+                           />
                        </div>
                        <div className={"form_confirm_input"}>
                            <label htmlFor="confirm_input_email">Email</label>

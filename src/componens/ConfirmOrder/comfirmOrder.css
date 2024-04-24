@@ -148,6 +148,16 @@
   display: block;
 }
 
+.flag-dropdown {
+  display: none;
+}
+
+.react-tel-input.confirm_input_number {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 900px) {
   .confirm_order_content form .form_confirm_input {
     min-width: 300px;
