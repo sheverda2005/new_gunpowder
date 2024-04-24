@@ -1,3 +1,9 @@
+.confirm_order_content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
 .confirm_order_content h2 {
   font-size: 35px;
   font-weight: 400;
@@ -5,21 +11,20 @@
   text-align: center;
 }
 .confirm_order_content form {
+  width: 100%;
   display: flex;
-  width: 80%;
   flex-wrap: wrap;
-  margin: 0 auto;
   justify-content: center;
 }
 .confirm_order_content form .form_confirm_input {
-  position: relative;
-  width: 40%;
-  margin: 10px 20px;
-  padding: 5px;
+  width: 35%;
   min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 20px;
+  position: relative;
 }
 .confirm_order_content form input {
-  width: 100%;
   background-color: #fbf9f3;
   outline: none;
   padding: 15px 15px;
@@ -94,10 +99,14 @@
   justify-content: center;
 }
 
+.confirm_input_city_wrapper {
+  width: 100%;
+}
+
 .form_confirm_input_choose_city {
   display: none;
   position: absolute;
-  width: 104.5%;
+  width: 100%;
   background-color: white;
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
   max-height: 300px;
@@ -120,7 +129,7 @@
 .form_confirm_input_list_of_departments {
   display: none;
   position: absolute;
-  width: 104.5%;
+  width: 100%;
   background-color: white;
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2);
   max-height: 300px;
@@ -140,43 +149,24 @@
   display: block;
 }
 
-@media (max-width: 1030px) {
+@media (max-width: 900px) {
   .confirm_order_content form .form_confirm_input {
-    margin: 20px;
+    min-width: 300px;
+    margin: 5px 10px;
   }
-  .confirm_order_content form {
+}
+@media (max-width: 660px) {
+  .confirm_order_content form label {
+    text-align: center;
+  }
+  .confirm_order_content form .form_confirm_input {
+    width: 80%;
+  }
+}
+@media (max-width: 500px) {
+  .confirm_order_content form .form_confirm_input {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
-}
-@media (max-width: 550px) {
-  .confirm_order_content form .form_confirm_input {
-    width: 90%;
-    margin-left: -2%;
-  }
-}
-@media (max-width: 468px) {
-  .confirm_order_content form .form_confirm_input {
-    min-width: 200px;
-    width: 90%;
-    margin-left: -2%;
-  }
-}
-@media (max-width: 426px) {
-  .confirm_order_content form .form_confirm_input {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 5%;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .confirm_order_content form button {
-    min-width: 95%;
+    margin: 5px 0;
   }
 }
 

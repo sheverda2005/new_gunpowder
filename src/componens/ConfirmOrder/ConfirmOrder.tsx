@@ -103,7 +103,9 @@ const ConfirmOrder = () => {
                                confirmOrderCity(event.target.value)
                                addCitiesNovaPoshta(event.target.value)
                            }} value={city} className={"confirm_input_city"} type="text"/>
-                               <div className={isFocus ? "form_confirm_input_choose_city active" : "form_confirm_input_choose_city"}>
+                           <div className="confirm_input_city_wrapper">
+                               <div
+                                   className={isFocus ? "form_confirm_input_choose_city active" : "form_confirm_input_choose_city"}>
                                    <ul>
                                        {cities.map(city => (
                                            <li onClick={(event) => {
@@ -114,28 +116,32 @@ const ConfirmOrder = () => {
                                        ))}
                                    </ul>
                                </div>
+                           </div>
                        </div>
                        <div className={"form_confirm_input"}>
                            <label htmlFor="confirm_input_address">Адреса</label>
-                           <input  onFocus={()=> {
+                           <input onFocus={() => {
                                setIsFocusDepartments(true)
-                           }} onBlur={()=> {
+                           }} onBlur={() => {
                                inputAddressHandler(setIsFocusDepartments)
                            }} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                                confirmOrderAddress(event.target.value)
                                addressDepartmentNovaPoshta(event.target.value, chosenCity?.DeliveryCity)
                            }} value={address} className={"confirm_input_address"} type="text"/>
-                           <div className={isFocusDepartments ? "form_confirm_input_list_of_departments active": "form_confirm_input_list_of_departments"} >
-                               <ul>
-                                   {departments.map(department => (
-                                       <li onClick={(event)=> {
-                                           setIsFocusDepartments(false)
-                                           confirmOrderAddress(department.Description)
-                                       }} >
-                                           {department.Description}
-                                       </li>
-                                   ))}
-                               </ul>
+                           <div className="confirm_input_city_wrapper">
+                               <div
+                                   className={isFocusDepartments ? "form_confirm_input_list_of_departments active" : "form_confirm_input_list_of_departments"}>
+                                   <ul>
+                                       {departments.map(department => (
+                                           <li onClick={(event) => {
+                                               setIsFocusDepartments(false)
+                                               confirmOrderAddress(department.Description)
+                                           }}>
+                                               {department.Description}
+                                           </li>
+                                       ))}
+                                   </ul>
+                               </div>
                            </div>
                        </div>
                        <div className="button_items">

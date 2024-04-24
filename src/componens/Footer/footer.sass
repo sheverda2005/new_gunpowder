@@ -59,6 +59,11 @@ footer
   justify-content: space-between
   align-items: center
 
+.footer_item
+  ul
+    li
+      white-space: break-spaces
+
 .footer_name_of_shop_item.currency
   display: flex
   .footer_name_of_shop_item_UAN
@@ -90,6 +95,11 @@ footer
     width: 70%
     .footer_item
       margin: 0 40px
+
+@media (max-width: 1118px)
+  .footer_links_content_items
+    .footer_item
+      width: 60%
 
 @media (max-width: 850px)
   .footer_content

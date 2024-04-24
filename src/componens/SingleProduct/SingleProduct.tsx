@@ -73,8 +73,8 @@ const SingleProduct = () => {
                                     Придбати
                                 </button>
                                 <div className="single_product_svg_items">
-                                    <img src="/image/heart_single_product.svg" alt="heart"/>
-                                    <img src="/image/compare_single_product.svg" alt="compare"/>
+                                    {/*<img src="/image/heart_single_product.svg" alt="heart"/>*/}
+                                    {/*<img src="/image/compare_single_product.svg" alt="compare"/>*/}
                                 </div>
                             </div>
                             <div className="product_description">
