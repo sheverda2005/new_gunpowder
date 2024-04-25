@@ -4,6 +4,7 @@ import Footer from "./componens/Footer/Footer";
 import {BrowserRouter} from "react-router-dom";
 import useRouters from "./useRouters";
 import {useActions} from "./hooks/useActions";
+import Error from "./componens/Error/Error";
 
 function App() {
     const {getAllProducts} = useActions()
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
           <NavBar/>
+          <Error/>
           {useRouters()}
           <Footer/>
       </BrowserRouter>

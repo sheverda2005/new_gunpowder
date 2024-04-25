@@ -6,6 +6,7 @@ import {confirmOrderReducer} from "./confirmOrderReducer";
 import {burgerMenuReducer} from "./burgerMenureducer";
 import {novaPoshtaCityReducer} from "./novaPoshtaCityReducer";
 import {ListOfDepartmentsReducer} from "./ listOfDepartmentsReducer";
+import {ErrorReducer} from "./errorReducer";
 
 
 
@@ -28,6 +29,7 @@ export const rootReducer = combineReducers({
     allProducts: getAllProducts,
     confirmOrder: confirmOrderReducer,
     deliverySystem,
+    error: ErrorReducer,
 })
 
 export type RootReducer = ReturnType<typeof rootReducer>

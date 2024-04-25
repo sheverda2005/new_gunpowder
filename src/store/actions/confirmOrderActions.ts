@@ -1,6 +1,7 @@
 import React, {Dispatch} from "react";
 import {ConfirmOrderActions, IConfirmOrderTypes, IConfirmProduct} from "../../types/confirmOrderTypes";
 import axios from "axios";
+import {ErrorActions, ErrorTypes} from "../../types/errorType";
 
 export function confirmOrderName(name: string) {
     return (dispatch: Dispatch<ConfirmOrderActions>) => {
@@ -67,7 +68,43 @@ export function confirmOrderProducts(products: IConfirmProduct[]) {
 
 export function confirmOrderSendData (name: string, surName: string, tel: string, address: string, city: string, email: string, products: IConfirmProduct[], event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault()
-    return async (dispatch: Dispatch<ConfirmOrderActions>) => {
+    let email_array = email.split("")
+    let email_check = false
+    let tel_array = tel.split("")
+    return async (dispatch: Dispatch<ConfirmOrderActions | ErrorActions>) => {
+        if (name.trim().length === 0 || surName.trim().length === 0 || tel.trim().length === 0 || address.trim().length === 0 || city.trim().length === 0 || email.trim().length == 0) {
+            dispatch({type: ErrorTypes.ERROR_TYPE_TRUE, payload: "Всі поля мають бути заповнені"})
+            setTimeout(()=> {
+                dispatch({type: ErrorTypes.ERROR_TYPE_FALSE})
+            }, 2000)
+            return;
+        }
+        email_array.forEach(letter => {
+            if (letter === "@") {
+                email_check = true
+            }
+        })
+        if (!email_check) {
+            dispatch({type: ErrorTypes.ERROR_TYPE_TRUE, payload: "Пошта некоректна"})
+            setTimeout(()=> {
+                dispatch({type: ErrorTypes.ERROR_TYPE_FALSE})
+            }, 2000)
+            return;
+        }
+        if (tel_array.length !== 17) {
+            dispatch({type: ErrorTypes.ERROR_TYPE_TRUE, payload: "Номер телефону недійсний"})
+            setTimeout(()=> {
+                dispatch({type: ErrorTypes.ERROR_TYPE_FALSE})
+            }, 2000)
+            return;
+        }
+        if (tel_array[0] !== "+" || tel_array[1] !== "3" || tel_array[2] !== "8" || tel_array[3] !== "0") {
+            dispatch({type: ErrorTypes.ERROR_TYPE_TRUE, payload: "Номер повинен починатися на +380"})
+            setTimeout(()=> {
+                dispatch({type: ErrorTypes.ERROR_TYPE_FALSE})
+            }, 2000)
+            return;
+        }
       try {
           dispatch({type: IConfirmOrderTypes.SEND_CONFIRM_ORDER_DATA_LOADING})
           let user = {
