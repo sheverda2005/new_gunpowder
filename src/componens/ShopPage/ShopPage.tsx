@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "./shop_page.css"
 import ProductCard from "../ProductCard/ProductCard";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const ShopPage = () => {
     const {products} = useTypedSelector(state => state.allProducts)
-
+    useEffect(()=> {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <div className={"shop_page"} >
             <div className="container">
