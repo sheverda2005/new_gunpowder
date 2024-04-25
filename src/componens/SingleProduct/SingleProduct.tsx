@@ -17,7 +17,6 @@ const SingleProduct = () => {
     const [count, setCount ] = useState(1)
     const {products} = useTypedSelector(state => state.allProducts)
     const {modalActiveMenuActionsTrue, modalActiveBasketActionsTrue} = useActions()
-    console.log(products)
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -85,14 +84,17 @@ const SingleProduct = () => {
                                     {product[0].productDescription}
                                 </p>
                             </div>
-                            <div className="product_description">
-                                <div className="product_description_title">
-                                    Інструкція
+                            {product[0].productLink.trim() == '' ? <></>
+                                :
+                                <div className="product_description">
+                                    <div className="product_description_title">
+                                        Інструкція
+                                    </div>
+                                    <p>
+                                        <a href={product[0].productLink}>Відеоінструкція</a>
+                                    </p>
                                 </div>
-                                <p>
-                                    <a href={product[0].productLink}>Відеоінструкція</a>
-                                </p>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>
