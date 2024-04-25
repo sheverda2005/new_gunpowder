@@ -90,7 +90,8 @@ const ConfirmOrder = () => {
                            <PhoneInput
                                value={tel}
                                defaultCountry="ua"
-                               className={"confirm_input_number"}
+                               onlyCountries={['ua']}
+                                   className={"confirm_input_number"}
                                onChange={(event: any) => {
                                    confirmOrderTel(event)
                                }}

@@ -32,7 +32,7 @@ export const confirmOrderReducer = (state: IConfirmOrder = initialState, action:
         case IConfirmOrderTypes.SEND_CONFIRM_ORDER_DATA:
             return {...state, name: '', surName: '', tel: '+380', email: '', address: '', city: '', products: []}
         case IConfirmOrderTypes.RESET_CONFIRM_ORDER_DATA:
-            return {...state, name: '', surName: '', tel: '+380', email: '', address: '', send_success: false, loading: false}
+            return {...state, name: '', surName: '', tel: '+380', email: '', address: '', city: '', send_success: false, loading: false}
         case IConfirmOrderTypes.SEND_CONFIRM_ORDER_DATA_LOADING:
             return {...state, loading: true}
         case IConfirmOrderTypes.SEND_CONFIRM_ORDER_DATA_SUCCESS:
