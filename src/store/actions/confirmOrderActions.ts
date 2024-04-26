@@ -22,7 +22,11 @@ export function confirmOrderSurName(surName: string) {
 }
 
 export function confirmOrderTel(tel: string) {
+    let tel_array = tel.split("")
     return (dispatch: Dispatch<ConfirmOrderActions>) => {
+        if (tel_array.length > 17) {
+            return
+        }
         dispatch({
             type: IConfirmOrderTypes.INPUT_CONFIRM_ORDER_TEL,
             payload: tel

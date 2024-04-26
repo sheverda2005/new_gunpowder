@@ -1,7 +1,11 @@
 import React, {useEffect} from 'react';
 import "./contact_page.css"
+import {useActions} from "../../hooks/useActions";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const ContactPage = () => {
+    const {inputFeedbackName, inputFeedbackNumber, inputFeedbackEmail, inputFeedbackMessage} = useActions()
+    const {name, number, message, email} = useTypedSelector(state => state.feedback)
     useEffect(()=> {
         window.scrollTo(0,0);
     }, [])
@@ -46,12 +50,20 @@ const ContactPage = () => {
                             <h2>Зворотній зв'зок</h2>
                             <div className="feedback_inputs">
                                 <div className="feedback_inputs_userData">
-                                    <input placeholder={"Ім'я"} type="text"/>
-                                    <input placeholder={"Телефон"} type="tel"/>
-                                    <input placeholder={"Email"} type="email"/>
+                                    <input onChange={(event)=> {
+                                        inputFeedbackName(event.target.value)
+                                    }} value={name} placeholder={"Ім'я"} type="text"/>
+                                    <input onChange={(event)=> {
+                                        inputFeedbackNumber(event.target.value)
+                                    }} value={number} placeholder={"Телефон"} type="tel"/>
+                                    <input onChange={(event)=> {
+                                        inputFeedbackEmail(event.target.value)
+                                    }} value={email}  placeholder={"Email"} type="email"/>
                                 </div>
                                 <div className="feedback_inputs_massage">
-                                    <textarea placeholder={"Повідомлення"} />
+                                    <textarea onChange={(event)=> {
+                                        inputFeedbackMessage(event.target.value)
+                                    }} value={message} placeholder={"Повідомлення"} />
                                 </div>
                                 <div className="button_send_message">
                                     <button>Надіслати</button>

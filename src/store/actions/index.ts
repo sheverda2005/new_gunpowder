@@ -4,6 +4,7 @@ import * as GetAllProducts from "./getAllProdcuts"
 import * as ConfirmOrder from "./confirmOrderActions"
 import * as BurgerMenu from "./burgerMenuActions"
 import * as NovaPoshtaCity from "./novaPoshtaCityActions"
+import * as FeedBack from "./feedbackActions"
 
 export default {
     ...ModalMenu,
@@ -11,5 +12,6 @@ export default {
     ...GetAllProducts,
     ...ConfirmOrder,
     ...BurgerMenu,
-    ...NovaPoshtaCity
+    ...NovaPoshtaCity,
+    ...FeedBack
 }
