@@ -5,6 +5,7 @@ import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {IProduct} from "../../../types/getAllProducts";
 import {NavLink} from "react-router-dom";
 import {useActions} from "../../../hooks/useActions";
+import Spinner from "../../Spinner/Spinner";
 function getAllProductsLocalStorage() {
     let allItems = []
     for (let i = 0; i < localStorage.length; i++) {
@@ -49,7 +50,7 @@ function allProductCount (products: any, storageItems: any){
 const ModalBasketMenu = () => {
     const [storageItems, setStorageItems] = useState([])
     const [deleteItem, setDeleteItem] = useState(0)
-    const {products} = useTypedSelector(state => state.allProducts)
+    const {products, loading} = useTypedSelector(state => state.allProducts)
     const [allPrice, setAllPrice] = useState(0);
     const {modalActiveBasketActionsFalse, modalActiveMenuActionsFalse, confirmOrderProducts} = useActions()
     useEffect(() => {
@@ -71,9 +72,11 @@ const ModalBasketMenu = () => {
         <div className={"modal_basket_menu"}>
             <div className="basket_menu_content">
                 <div className="basket_menu_items">
-                    {storageItems.map(item => {
-                        return <ModalBasketMenuItem deleteItem={setDeleteItem} item={item}/>
-                    })}
+                    {loading ? <Spinner/> :
+                        storageItems.map(item => {
+                            return <ModalBasketMenuItem deleteItem={setDeleteItem} item={item}/>
+                        })
+                    }
                 </div>
             </div>
             <div className="basket_buy_options">

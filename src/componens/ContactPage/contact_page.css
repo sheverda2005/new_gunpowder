@@ -116,6 +116,16 @@
   display: flex;
   justify-content: end;
 }
+.button_send_message .send_message_done {
+  margin-top: 15px;
+  padding: 13px 23px;
+  color: #283c28;
+  background-color: white;
+  border: 1px solid #283c28;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 .button_send_message button {
   margin-top: 15px;
   padding: 13px 23px;

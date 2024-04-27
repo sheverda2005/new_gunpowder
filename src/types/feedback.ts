@@ -5,6 +5,8 @@ export interface IFeedback {
     number: string
     email: string
     message: string
+    loading: boolean
+    success: boolean
 }
 
 export enum FeedbackTypes {
@@ -12,7 +14,9 @@ export enum FeedbackTypes {
     "INPUT_FEEDBACK_NUMBER"='INPUT_FEEDBACK_NUMBER',
     "INPUT_FEEDBACK_EMAIL"='INPUT_FEEDBACK_EMAIL',
     "INPUT_FEEDBACK_MESSAGE"='INPUT_FEEDBACK_MESSAGE',
-    "CLEAR_FEEDBACK_DATA"="CLEAR_FEEDBACK_DATA"
+    "CLEAR_FEEDBACK_DATA"="CLEAR_FEEDBACK_DATA",
+    "FEEDBACK_DATA_LOADING"="FEEDBACK_DATA_LOADING",
+    "FEEDBACK_DATA_SUCCESS"="FEEDBACK_DATA_SUCCESS",
 }
 
 
@@ -40,4 +44,20 @@ interface clearFeedbackData {
     type: FeedbackTypes.CLEAR_FEEDBACK_DATA
 }
 
-export type FeedbackActions = inputFeedBackName | inputFeedBackNumber | inputFeedBackEmail | inputFeedBackMessage | clearFeedbackData | any
+interface loadingFeedbackData {
+    type: FeedbackTypes.FEEDBACK_DATA_LOADING
+}
+
+interface successFeedbackData {
+    type: FeedbackTypes.FEEDBACK_DATA_SUCCESS
+}
+
+export type FeedbackActions =
+    inputFeedBackName |
+    inputFeedBackNumber |
+    inputFeedBackEmail |
+    inputFeedBackMessage |
+    clearFeedbackData |
+    loadingFeedbackData |
+    successFeedbackData |
+    any

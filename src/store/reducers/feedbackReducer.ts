@@ -4,7 +4,9 @@ const initialState: IFeedback = {
     name: "",
     number: "",
     email: "",
-    message: ""
+    message: "",
+    loading: false,
+    success: false,
 }
 
 
@@ -19,7 +21,11 @@ export const feedbackReducer = (state = initialState, action: FeedbackActions): 
         case FeedbackTypes.INPUT_FEEDBACK_MESSAGE:
             return {...state, message: action.payload}
         case FeedbackTypes.CLEAR_FEEDBACK_DATA:
-            return {...state, name: '', message: '', number: '', email:''}
+            return {...state, name: '', message: '', number: '', email:'', loading: false, success: false}
+        case FeedbackTypes.FEEDBACK_DATA_LOADING:
+            return {...state, loading: true}
+        case FeedbackTypes.FEEDBACK_DATA_SUCCESS:
+            return {...state, loading: false, success: true, name: '', message: '', number: '', email:''}
         default:
             return state;
     }

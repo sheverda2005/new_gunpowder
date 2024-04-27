@@ -2,12 +2,14 @@ import React, {useEffect} from 'react';
 import "./contact_page.css"
 import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import Spinner from "../Spinner/Spinner";
 
 const ContactPage = () => {
-    const {inputFeedbackName, inputFeedbackNumber, inputFeedbackEmail, inputFeedbackMessage} = useActions()
-    const {name, number, message, email} = useTypedSelector(state => state.feedback)
+    const {inputFeedbackName, inputFeedbackNumber, inputFeedbackEmail, inputFeedbackMessage, confirmFeedbackMessage, clearFeedBackData} = useActions()
+    const {name, number, message, email, loading, success} = useTypedSelector(state => state.feedback)
     useEffect(()=> {
         window.scrollTo(0,0);
+        clearFeedBackData()
     }, [])
     return (
         <div className={"contact_page"} >
@@ -65,9 +67,18 @@ const ContactPage = () => {
                                         inputFeedbackMessage(event.target.value)
                                     }} value={message} placeholder={"Повідомлення"} />
                                 </div>
-                                <div className="button_send_message">
-                                    <button>Надіслати</button>
-                                </div>
+                                    <div className="button_send_message">
+                                        {loading ? <Spinner/>
+                                            :
+                                            success ? <div className={"send_message_done"} >
+                                                    Ваше повідомлення відправлено
+                                                </div> :
+                                                <button onClick={() => {
+                                                    confirmFeedbackMessage(name, number, message, email)
+                                                }}>Надіслати
+                                                </button>
+                                        }
+                                    </div>
                             </div>
                         </div>
                     </div>
