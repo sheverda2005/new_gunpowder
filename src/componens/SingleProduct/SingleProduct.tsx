@@ -6,17 +6,18 @@ import {IProduct} from "../../types/getAllProducts";
 import {useActions} from "../../hooks/useActions";
 
 
-function setLocalStorage(name: string, id: string, count: number) {
+function setLocalStorage(name: string, id: string, count: number, localeStorageItems: any) {
     localStorage.setItem(name, JSON.stringify({
         id: id,
         count: count
     }))
+    localeStorageItems()
 }
 
 const SingleProduct = () => {
     const [count, setCount ] = useState(1)
     const {products} = useTypedSelector(state => state.allProducts)
-    const {modalActiveMenuActionsTrue, modalActiveBasketActionsTrue} = useActions()
+    const {modalActiveMenuActionsTrue, modalActiveBasketActionsTrue, localeStorageItems} = useActions()
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -65,7 +66,7 @@ const SingleProduct = () => {
                                     </div>
                                 </div>
                                 <button onClick={() => {
-                                    setLocalStorage(product[0].productName, product[0]._id, count)
+                                    setLocalStorage(product[0].productName, product[0]._id, count, localeStorageItems)
                                     modalActiveMenuActionsTrue()
                                     modalActiveBasketActionsTrue()
                                 }}>

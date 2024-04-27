@@ -2,6 +2,7 @@ import React, {Dispatch} from "react";
 import {ConfirmOrderActions, IConfirmOrderTypes, IConfirmProduct} from "../../types/confirmOrderTypes";
 import axios from "axios";
 import {ErrorActions, ErrorTypes} from "../../types/errorType";
+import {IStorageActions, StorageTypes} from "../../types/localStorageItems";
 
 export function confirmOrderName(name: string) {
     return (dispatch: Dispatch<ConfirmOrderActions>) => {
@@ -62,6 +63,7 @@ export function confirmOrderAddress(address: string) {
 }
 
 export function confirmOrderProducts(products: IConfirmProduct[]) {
+    console.log(products)
     return (dispatch: Dispatch<ConfirmOrderActions>) => {
         dispatch({
             type: IConfirmOrderTypes.CONFIRM_ORDER_PRODUCT,
@@ -75,7 +77,7 @@ export function confirmOrderSendData (name: string, surName: string, tel: string
     let email_array = email.split("")
     let email_check = false
     let tel_array = tel.split("")
-    return async (dispatch: Dispatch<ConfirmOrderActions | ErrorActions>) => {
+    return async (dispatch: Dispatch<ConfirmOrderActions | ErrorActions | IStorageActions>) => {
         if (name.trim().length === 0 || surName.trim().length === 0 || tel.trim().length === 0 || address.trim().length === 0 || city.trim().length === 0 || email.trim().length == 0) {
             dispatch({type: ErrorTypes.ERROR_TYPE_TRUE, payload: "Всі поля повинні бути заповнені"})
             setTimeout(()=> {
@@ -126,6 +128,7 @@ export function confirmOrderSendData (name: string, surName: string, tel: string
           dispatch({type: IConfirmOrderTypes.SEND_CONFIRM_ORDER_DATA})
           dispatch({type: IConfirmOrderTypes.SEND_CONFIRM_ORDER_DATA_SUCCESS})
           localStorage.clear();
+          dispatch({type: StorageTypes.CLEAR_STORAGE_ITEMS})
       } catch (e) {
           console.log(e)
       }

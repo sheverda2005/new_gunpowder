@@ -52,7 +52,7 @@ const ModalBasketMenu = () => {
     const [deleteItem, setDeleteItem] = useState(0)
     const {products, loading} = useTypedSelector(state => state.allProducts)
     const [allPrice, setAllPrice] = useState(0);
-    const {modalActiveBasketActionsFalse, modalActiveMenuActionsFalse, confirmOrderProducts} = useActions()
+    const {modalActiveBasketActionsFalse, modalActiveMenuActionsFalse, confirmOrderProducts, localeStorageItems} = useActions()
     useEffect(() => {
         let items = getAllProductsLocalStorage()
         // @ts-ignore
@@ -67,6 +67,7 @@ const ModalBasketMenu = () => {
         setStorageItems(items)
         let allPriceNumber = allProductCount(products, items)
         setAllPrice(allPriceNumber)
+        localeStorageItems()
     }, [deleteItem]);
     return (
         <div className={"modal_basket_menu"}>

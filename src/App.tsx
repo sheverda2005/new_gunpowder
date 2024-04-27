@@ -7,9 +7,10 @@ import {useActions} from "./hooks/useActions";
 import Error from "./componens/Error/Error";
 
 function App() {
-    const {getAllProducts} = useActions()
+    const {getAllProducts, localeStorageItems} = useActions()
     useEffect(()=> {
         getAllProducts()
+        localeStorageItems()
     }, [])
   return (
     <div className="App">

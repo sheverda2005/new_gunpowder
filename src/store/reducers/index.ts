@@ -8,6 +8,7 @@ import {novaPoshtaCityReducer} from "./novaPoshtaCityReducer";
 import {ListOfDepartmentsReducer} from "./ listOfDepartmentsReducer";
 import {ErrorReducer} from "./errorReducer";
 import {feedbackReducer} from "./feedbackReducer";
+import {localeStorageItemsReducer} from "./localeStorageItemsReducer";
 
 
 
@@ -31,7 +32,8 @@ export const rootReducer = combineReducers({
     confirmOrder: confirmOrderReducer,
     deliverySystem,
     error: ErrorReducer,
-    feedback: feedbackReducer
+    feedback: feedbackReducer,
+    localeStorageReducer: localeStorageItemsReducer
 })
 
 export type RootReducer = ReturnType<typeof rootReducer>

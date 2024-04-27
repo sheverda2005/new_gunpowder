@@ -11,8 +11,6 @@ const ModalBasketMenuItem: FC<IMenuItem> = ({item, deleteItem}) => {
     const {products} = useTypedSelector(state => state.allProducts)
     let ourProducts: any = {}
     products.forEach(product => {
-        console.log("product:", product._id)
-        console.log("item", item.value.id)
         if (product._id == item.value.id) {
             ourProducts = {
                 product: product,

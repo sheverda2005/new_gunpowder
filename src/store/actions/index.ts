@@ -5,6 +5,7 @@ import * as ConfirmOrder from "./confirmOrderActions"
 import * as BurgerMenu from "./burgerMenuActions"
 import * as NovaPoshtaCity from "./novaPoshtaCityActions"
 import * as FeedBack from "./feedbackActions"
+import * as LocaleStorageItems from "./localeStorageActions"
 
 export default {
     ...ModalMenu,
@@ -13,5 +14,6 @@ export default {
     ...ConfirmOrder,
     ...BurgerMenu,
     ...NovaPoshtaCity,
-    ...FeedBack
+    ...FeedBack,
+    ...LocaleStorageItems
 }

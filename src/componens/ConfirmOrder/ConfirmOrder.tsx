@@ -6,23 +6,7 @@ import {NavLink} from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 import PhoneInput from 'react-telephone-input';
 import {IProduct} from "../../types/getAllProducts";
-import {all} from "axios";
 
-function getAllProductsLocalStorage() {
-    let allItems = []
-    for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i); // Получаем ключ
-        // @ts-ignore
-        let value = JSON.parse(localStorage.getItem(key));
-        // @ts-ignore
-        let item = {
-            key: key,
-            value: value
-        };
-        allItems.push(item);
-    }
-    return allItems
-}
 
 function inputAddressHandler (setIsFocusDepartments: any) {
     setTimeout(()=> {
@@ -75,19 +59,18 @@ const ConfirmOrder = () => {
     const {chosenCity} = useTypedSelector(state => state.deliverySystem.novaPoshta)
     const [allPrice, setAllPrice] = useState(0);
     const {allProducts} = useTypedSelector(state => state)
+    const {items} = useTypedSelector(state => state.localeStorageReducer)
 
     useEffect(()=> {
-        let items = getAllProductsLocalStorage()
         // @ts-ignore
         confirmOrderProducts(items)
         resetConfirmOrderData()
         window.scrollTo(0, 0);
     }, [])
     useEffect(() => {
-        let items = getAllProductsLocalStorage()
         let allPriceNumber = allProductCount(allProducts.products, items)
         setAllPrice(allPriceNumber)
-    }, [allProducts.products, products]);
+    }, [allProducts.products, products, items]);
     return (
         <div className={"confirm_order_page"} >
             <div className="container">
