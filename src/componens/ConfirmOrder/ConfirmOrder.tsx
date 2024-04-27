@@ -5,6 +5,8 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {NavLink} from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 import PhoneInput from 'react-telephone-input';
+import {IProduct} from "../../types/getAllProducts";
+import {all} from "axios";
 
 function getAllProductsLocalStorage() {
     let allItems = []
@@ -38,6 +40,18 @@ function InputMask(props: { placeholder: string, mask: string }) {
     return null;
 }
 
+function allProductCount (products: any, storageItems: any) {
+    let basketProductsPrice = 0;
+    products.forEach((product: IProduct) => {
+        storageItems.forEach((storageItem: any) => {
+            if (product._id ==  storageItem.value.id) {
+                basketProductsPrice += +product.price*storageItem.value.count
+            }
+        })
+    })
+    return basketProductsPrice
+}
+
 const ConfirmOrder = () => {
     const {
         confirmOrderName,
@@ -59,6 +73,8 @@ const ConfirmOrder = () => {
     const [isFocusDepartments, setIsFocusDepartments] = useState(false)
     const {addressDepartmentNovaPoshta} = useActions()
     const {chosenCity} = useTypedSelector(state => state.deliverySystem.novaPoshta)
+    const [allPrice, setAllPrice] = useState(0);
+    const {allProducts} = useTypedSelector(state => state)
 
     useEffect(()=> {
         let items = getAllProductsLocalStorage()
@@ -67,112 +83,132 @@ const ConfirmOrder = () => {
         resetConfirmOrderData()
         window.scrollTo(0, 0);
     }, [])
+    useEffect(() => {
+        let items = getAllProductsLocalStorage()
+        let allPriceNumber = allProductCount(allProducts.products, items)
+        setAllPrice(allPriceNumber)
+    }, [allProducts.products, products]);
     return (
         <div className={"confirm_order_page"} >
-           <div className="container">
-               <div className="confirm_order_content">
-                   <h2>Оформити замовлення</h2>
-                   <form>
-                       <div className={"form_confirm_input"}>
-                           <label htmlFor="confirm_input_name">Ім'я</label>
-                           <input onChange={(event: React.ChangeEvent<HTMLInputElement>)=> {
-                               confirmOrderName(event.target.value)
-                           }} value={name} className={"confirm_input_name"} type="text"/>
-                       </div>
-                       <div className={"form_confirm_input"}>
-                           <label htmlFor="confirm_input_surname">Прізвище</label>
-                           <input onChange={(event: React.ChangeEvent<HTMLInputElement>)=> {
-                               confirmOrderSurName(event.target.value)
-                           }} value={surName} className={"confirm_input_surname"} type="text"/>
-                       </div>
-                       <div className={"form_confirm_input"}>
-                           <label htmlFor="confirm_input_number">Телефон</label>
-                           <PhoneInput
-                               value={tel}
-                               defaultCountry="ua"
-                               onlyCountries={['ua']}
-                                   className={"confirm_input_number"}
-                               onChange={(event: any) => {
-                                   confirmOrderTel(event)
-                               }}
-                           />
-                       </div>
-                       <div className={"form_confirm_input"}>
-                           <label htmlFor="confirm_input_email">Email</label>
-                           <input onChange={(event: React.ChangeEvent<HTMLInputElement>)=> {
-                               confirmOrderEmail(event.target.value)
-                           }} value={email} className={"confirm_input_email"} type="email"/>
-                       </div>
+            <div className="container">
+                <h2>Оформити замовлення</h2>
+                <div className="confirm_order_content">
+                    <form>
+                        <div className={"form_confirm_input"}>
+                            <label htmlFor="confirm_input_name">Ім'я</label>
+                            <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                confirmOrderName(event.target.value)
+                            }} value={name} className={"confirm_input_name"} type="text"/>
+                        </div>
+                        <div className={"form_confirm_input"}>
+                            <label htmlFor="confirm_input_surname">Прізвище</label>
+                            <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                confirmOrderSurName(event.target.value)
+                            }} value={surName} className={"confirm_input_surname"} type="text"/>
+                        </div>
+                        <div className={"form_confirm_input"}>
+                            <label htmlFor="confirm_input_number">Телефон</label>
+                            <PhoneInput
+                                value={tel}
+                                defaultCountry="ua"
+                                onlyCountries={['ua']}
+                                className={"confirm_input_number"}
+                                onChange={(event: any) => {
+                                    confirmOrderTel(event)
+                                }}
+                            />
+                        </div>
+                        <div className={"form_confirm_input"}>
+                            <label htmlFor="confirm_input_email">Email</label>
+                            <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                confirmOrderEmail(event.target.value)
+                            }} value={email} className={"confirm_input_email"} type="email"/>
+                        </div>
 
-                       <div className={"form_confirm_input"}>
-                           <label htmlFor="confirm_input_city">Місто або село</label>
-                           <input onFocus={() => {
-                               setIsFocus(true)
-                           }} onBlur={()=> {
-                               inputCityHandler(setIsFocus)
-                           }}   onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                               confirmOrderCity(event.target.value)
-                               addCitiesNovaPoshta(event.target.value)
-                           }} value={city} className={"confirm_input_city"} type="text"/>
-                           <div className="confirm_input_city_wrapper">
-                               <div
-                                   className={isFocus ? "form_confirm_input_choose_city active" : "form_confirm_input_choose_city"}>
-                                   <ul>
-                                       {cities.map(city => (
-                                           <li onClick={(event) => {
-                                               setIsFocus(false)
-                                               confirmOrderCity(city.Present)
-                                               chosenCityNovaPoshta(city)
-                                           }}>{city.Present}</li>
-                                       ))}
-                                   </ul>
-                               </div>
-                           </div>
-                       </div>
-                       <div className={"form_confirm_input"}>
-                           <label htmlFor="confirm_input_address">Відділення або поштомат Нова пошта</label>
-                           <input onFocus={() => {
-                               setIsFocusDepartments(true)
-                           }} onBlur={() => {
-                               inputAddressHandler(setIsFocusDepartments)
-                           }} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                               confirmOrderAddress(event.target.value)
-                               addressDepartmentNovaPoshta(event.target.value, chosenCity?.DeliveryCity)
-                           }} value={address} className={"confirm_input_address"} type="text"/>
-                           <div className="confirm_input_city_wrapper">
-                               <div
-                                   className={isFocusDepartments ? "form_confirm_input_list_of_departments active" : "form_confirm_input_list_of_departments"}>
-                                   <ul>
-                                       {departments.map(department => (
-                                           <li onClick={(event) => {
-                                               setIsFocusDepartments(false)
-                                               confirmOrderAddress(department.Description)
-                                           }}>
-                                               {department.Description}
-                                           </li>
-                                       ))}
-                                   </ul>
-                               </div>
-                           </div>
-                       </div>
-                       <div className="button_items">
-                           {loading ?
-                               <Spinner/> : send_success ? <div className={"form_confirm_success_items"}>
-                                   <div className={"form_confirm_success"}>
-                                       Замолення оформлено
-                                   </div>
-                                   <NavLink to={"/"}>
-                                       <div className={"form_confirm_success_link"}>
-                                           Повернутися на головну сторінку
-                                       </div>
-                                   </NavLink>
-                               </div> : <button onClick={(event) => {
-                                   confirmOrderSendData(name, surName, tel, address, city, email, products, event);
-                               }} type={"submit"}>Оформити замовлення</button>}
-                       </div>
-                   </form>
-               </div>
-           </div>
+                        <div className={"form_confirm_input"}>
+                            <label htmlFor="confirm_input_city">Місто або село</label>
+                            <input onFocus={() => {
+                                setIsFocus(true)
+                            }} onBlur={() => {
+                                inputCityHandler(setIsFocus)
+                            }} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                confirmOrderCity(event.target.value)
+                                addCitiesNovaPoshta(event.target.value)
+                            }} value={city} className={"confirm_input_city"} type="text"/>
+                            <div className="confirm_input_city_wrapper">
+                                <div
+                                    className={isFocus ? "form_confirm_input_choose_city active" : "form_confirm_input_choose_city"}>
+                                    <ul>
+                                        {cities.map(city => (
+                                            <li onClick={(event) => {
+                                                setIsFocus(false)
+                                                confirmOrderCity(city.Present)
+                                                chosenCityNovaPoshta(city)
+                                            }}>{city.Present}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={"form_confirm_input"}>
+                            <label htmlFor="confirm_input_address">Відділення або поштомат Нова пошта</label>
+                            <input onFocus={() => {
+                                setIsFocusDepartments(true)
+                            }} onBlur={() => {
+                                inputAddressHandler(setIsFocusDepartments)
+                            }} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                                confirmOrderAddress(event.target.value)
+                                addressDepartmentNovaPoshta(event.target.value, chosenCity?.DeliveryCity)
+                            }} value={address} className={"confirm_input_address"} type="text"/>
+                            <div className="confirm_input_city_wrapper">
+                                <div
+                                    className={isFocusDepartments ? "form_confirm_input_list_of_departments active" : "form_confirm_input_list_of_departments"}>
+                                    <ul>
+                                        {departments.map(department => (
+                                            <li onClick={(event) => {
+                                                setIsFocusDepartments(false)
+                                                confirmOrderAddress(department.Description)
+                                            }}>
+                                                {department.Description}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <div className="confirm_order_delivery_data">
+                        <div className="confirm_order_delivery_data_item sum_of_order">
+                            <p>Сума замовлення:</p>
+                            <p><strong>{allPrice + " грн"}</strong></p>
+                        </div>
+                        <div className="confirm_order_delivery_data_item delivery_system">
+                            <p>Спосіб доставки: </p>
+                            <p><strong>Нова пошта</strong></p>
+                        </div>
+                        <div className="confirm_order_delivery_data_item payment">
+                            <p>Оплата: </p>
+                            <p><strong>При отриманні товару</strong></p>
+                        </div>
+                        <div className="button_items">
+                            {loading ?
+                                <Spinner/> : send_success ? <div className={"form_confirm_success_items"}>
+                                    <div className={"form_confirm_success"}>
+                                        Замолення оформлено
+                                    </div>
+                                    <NavLink to={"/"}>
+                                        <div className={"form_confirm_success_link"}>
+                                            Повернутися на головну сторінку
+                                        </div>
+                                    </NavLink>
+                                </div> : <button onClick={(event) => {
+                                    confirmOrderSendData(name, surName, tel, address, city, email, products, event);
+                                }} type={"submit"}>Оформити замовлення</button>}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

@@ -125,6 +125,7 @@ export function confirmOrderSendData (name: string, surName: string, tel: string
           })
           dispatch({type: IConfirmOrderTypes.SEND_CONFIRM_ORDER_DATA})
           dispatch({type: IConfirmOrderTypes.SEND_CONFIRM_ORDER_DATA_SUCCESS})
+          localStorage.clear();
       } catch (e) {
           console.log(e)
       }
