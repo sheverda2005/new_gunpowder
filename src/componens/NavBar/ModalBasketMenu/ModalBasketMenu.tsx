@@ -80,24 +80,25 @@ const ModalBasketMenu = () => {
                     }
                 </div>
             </div>
-            <div className="basket_buy_options">
+            {!loading ? <div className="basket_buy_options">
                 <div className={"all_price"}>
                     <span>Всього </span>
                     <span>{`${allPrice} ₴`}</span>
                 </div>
                 {storageItems.length == 0 ?
-                    <div className={"empty_basket"} >
+                    <div className={"empty_basket"}>
                         Кошик пустий
-                    </div>:
+                    </div> :
                     <NavLink to={"/confirm_order"}>
-                        <button onClick={()=> {
+                        <button onClick={() => {
                             modalActiveMenuActionsFalse()
                             modalActiveBasketActionsFalse()
                             confirmOrderProducts(storageItems)
-                        }} >Купити</button>
+                        }}>Купити
+                        </button>
                     </NavLink>
                 }
-            </div>
+            </div>: <></>}
         </div>
     );
 };

@@ -19,6 +19,9 @@
   flex-direction: column;
   height: 70%;
 }
+.basket_menu_items .spinner {
+  margin-top: 50px !important;
+}
 .basket_menu_items::-webkit-scrollbar {
   display: none;
 }
