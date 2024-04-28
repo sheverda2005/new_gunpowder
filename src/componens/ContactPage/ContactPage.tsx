@@ -3,6 +3,7 @@ import "./contact_page.css"
 import {useActions} from "../../hooks/useActions";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import Spinner from "../Spinner/Spinner";
+import PhoneInput from "react-telephone-input";
 
 const ContactPage = () => {
     const {inputFeedbackName, inputFeedbackNumber, inputFeedbackEmail, inputFeedbackMessage, confirmFeedbackMessage, clearFeedBackData} = useActions()
@@ -55,9 +56,16 @@ const ContactPage = () => {
                                     <input onChange={(event)=> {
                                         inputFeedbackName(event.target.value)
                                     }} value={name} placeholder={"Ім'я"} type="text"/>
-                                    <input onChange={(event)=> {
-                                        inputFeedbackNumber(event.target.value)
-                                    }} value={number} placeholder={"Телефон"} type="tel"/>
+
+                                    <PhoneInput
+                                        value={number}
+                                        defaultCountry="ua"
+                                        onlyCountries={['ua']}
+                                        placeholder={"Телефон"}
+                                        onChange={(event: any) => {
+                                            inputFeedbackNumber(event)
+                                        }}
+                                    />
                                     <input onChange={(event)=> {
                                         inputFeedbackEmail(event.target.value)
                                     }} value={email}  placeholder={"Email"} type="email"/>
@@ -74,7 +82,7 @@ const ContactPage = () => {
                                                     Ваше повідомлення відправлено
                                                 </div> :
                                                 <button onClick={() => {
-                                                    confirmFeedbackMessage(name, number, message, email)
+                                                    confirmFeedbackMessage(name, number, email, message)
                                                 }}>Надіслати
                                                 </button>
                                         }

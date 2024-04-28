@@ -122,6 +122,16 @@
       color: #283c28
       transition: all 0.3s ease
 
+
+
+.feedback_inputs_userData
+  .react-tel-input
+    display: flex
+    width: 30%
+    .form-control
+      width: 90%
+
+
 @media (max-width: 950px)
   .feedback
     margin-left: 20px
@@ -150,6 +160,13 @@
   .address
     p
       text-align: center
+  .feedback_inputs_userData
+    .react-tel-input
+      display: flex
+      justify-content: center
+      width: 100%
+      .form-control
+        width: 90%
 
 @media (max-width: 1275px)
   .feedback_inputs_massage
@@ -169,9 +186,6 @@
   .contact_page_content_items
     .feedback
       margin: 0 auto
-  .feedback_inputs_userData
-    input
-      width: 100%
 
 @media (max-width: 816px)
   .feedback_inputs
@@ -216,11 +230,27 @@
   .feedback_inputs_massage
     width: 100%
 
+
+
 @media (max-width: 375px)
   .feedback_inputs_massage
     width: 102%
+  .feedback_inputs_userData
+    .react-tel-input
+      display: flex
+      justify-content: center
+      width: 102%
+      .form-control
+        width: 100%
 
 @media (max-width: 333px)
   .feedback_inputs_massage
     width: 104%
+  .feedback_inputs_userData
+    .react-tel-input
+      display: flex
+      justify-content: center
+      width: 104%
+      .form-control
+        width: 100%
 

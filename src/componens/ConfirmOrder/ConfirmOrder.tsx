@@ -92,7 +92,7 @@ const ConfirmOrder = () => {
                         <div className={"form_confirm_input"}>
                             <label htmlFor="confirm_input_number">Телефон</label>
                             <PhoneInput
-                                value={tel}
+                                value={"ptrpoerpk"}
                                 defaultCountry="ua"
                                 onlyCountries={['ua']}
                                 className={"confirm_input_number"}
