@@ -68,7 +68,7 @@ const ModalBasketMenu = () => {
         let allPriceNumber = allProductCount(products, items)
         setAllPrice(allPriceNumber)
         localeStorageItems()
-    }, [deleteItem]);
+    }, [deleteItem, loading]);
     return (
         <div className={"modal_basket_menu"}>
             <div className="basket_menu_content">
