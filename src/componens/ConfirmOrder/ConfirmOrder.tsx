@@ -175,7 +175,9 @@ const ConfirmOrder = () => {
                             <p><strong>При отриманні товару</strong></p>
                         </div>
                         <div className="button_items">
-                            {loading ?
+                            {allPrice == 0 ? <div className={"form_confirm_success"}>
+                                Замовлення відсутні
+                            </div>:  loading ?
                                 <Spinner/> : send_success ? <div className={"form_confirm_success_items"}>
                                     <div className={"form_confirm_success"}>
                                         Замолення оформлено
