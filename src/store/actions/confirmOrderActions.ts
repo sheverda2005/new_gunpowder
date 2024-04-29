@@ -72,12 +72,15 @@ export function confirmOrderProducts(products: IConfirmProduct[]) {
     }
 }
 
-export function confirmOrderSendData (name: string, surName: string, tel: string, address: string, city: string, email: string, products: IConfirmProduct[], event: React.MouseEvent<HTMLButtonElement>) {
+export function confirmOrderSendData (name: string, surName: string, tel: string, address: string, city: string, email: string, products: IConfirmProduct[], event: React.MouseEvent<HTMLButtonElement>, allPrice: number) {
     event.preventDefault()
     let email_array = email.split("")
     let email_check = false
     let tel_array = tel.split("")
     return async (dispatch: Dispatch<ConfirmOrderActions | ErrorActions | IStorageActions>) => {
+        if (allPrice == 0) {
+            return;
+        }
         if (name.trim().length === 0 || surName.trim().length === 0 || tel.trim().length === 0 || address.trim().length === 0 || city.trim().length === 0 || email.trim().length == 0) {
             dispatch({type: ErrorTypes.ERROR_TYPE_TRUE, payload: "Всі поля повинні бути заповнені"})
             setTimeout(()=> {

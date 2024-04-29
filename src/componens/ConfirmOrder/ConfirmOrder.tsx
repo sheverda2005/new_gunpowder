@@ -175,9 +175,7 @@ const ConfirmOrder = () => {
                             <p><strong>При отриманні товару</strong></p>
                         </div>
                         <div className="button_items">
-                            {allPrice == 0 ? <div className={"form_confirm_success"}>
-                                Замовлення відсутні
-                            </div>:  loading ?
+                            {loading ?
                                 <Spinner/> : send_success ? <div className={"form_confirm_success_items"}>
                                     <div className={"form_confirm_success"}>
                                         Замолення оформлено
@@ -187,9 +185,9 @@ const ConfirmOrder = () => {
                                             Повернутися на головну сторінку
                                         </div>
                                     </NavLink>
-                                </div> : <button onClick={(event) => {
-                                    confirmOrderSendData(name, surName, tel, address, city, email, products, event);
-                                }} type={"submit"}>Оформити замовлення</button>}
+                                </div> : <button className={allPrice == 0 ? "button_submit" : "button_submit active"} onClick={(event) => {
+                                    confirmOrderSendData(name, surName, tel, address, city, email, products, event, allPrice);
+                                }} type={"submit"}>{allPrice == 0 ? "Замовлення відсутні" : "Оформити замовлення"}</button>}
                         </div>
                     </div>
                 </div>

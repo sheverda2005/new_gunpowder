@@ -146,7 +146,7 @@
   padding: 20px;
   margin-top: 40px;
 }
-.confirm_order_delivery_data button {
+.confirm_order_delivery_data .button_submit.active {
   width: 30%;
   font-weight: 600;
   font-size: 18px;
@@ -159,10 +159,20 @@
   transition: all 0.3s ease;
   min-width: 300px;
 }
-.confirm_order_delivery_data button:hover {
+.confirm_order_delivery_data .button_submit.active:hover {
   background-color: white;
   color: #283c28;
   transition: all 0.3s ease;
+}
+.confirm_order_delivery_data .button_submit {
+  background-color: white;
+  color: #283c28;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 14px 20px;
+  cursor: pointer;
+  border: 1px solid #283c28;
 }
 .confirm_order_delivery_data .confirm_order_delivery_data_item {
   font-size: 16px;
